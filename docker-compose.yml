@@ -2,10 +2,10 @@
 version: '3.8'
 
 services:
-  app:
+  sc2-battle-experiments:
     build:
       context: .
-    image: alvarofpp/app
-    container_name: app
+    image: alvarofpp/sc2-battle-experiments
+    container_name: sc2-battle-experiments
     volumes:
       - .:/app

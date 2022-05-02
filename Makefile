@@ -1,5 +1,5 @@
 # Variables
-APP_NAME=app
+APP_NAME=sc2-battle-experiments
 ROOT=$(shell pwd)
 
 ## Lint
