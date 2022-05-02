@@ -1,11 +1,4 @@
-# Boilerplate for Python projects
+# StarCraft 2 - Battle experiments
 
-In this boilerplate you have:
-
-- Python 3.10-slim;
-- Docker and Docker Compose;
-- Linter workflow.
-
-**TO DO**:
-
-- Tests and coverage (example, command and CI).
+This repository will contain the battle experiments from my master's
+deep reinforcement learning research.
