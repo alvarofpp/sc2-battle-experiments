@@ -1,4 +1,8 @@
+FROM alvarofpp/s2client:4.10 AS s2client
 FROM python:3.10-slim
+
+# Install SC2
+COPY --from=s2client /root/StarCraftII /root/StarCraftII
 
 # Virtual environment
 RUN python3 -m venv /opt/venv
