@@ -7,5 +7,9 @@ services:
       context: .
     image: alvarofpp/sc2-battle-experiments
     container_name: sc2-battle-experiments
+    ipc: host
     volumes:
-      - .:/app
+      - ./app:/app
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      - DISPLAY=${DISPLAY}

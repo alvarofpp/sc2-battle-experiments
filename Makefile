@@ -27,6 +27,12 @@ lint:
 		&& lint-markdown \
 		&& lint-python"
 
+.PHONY: run
+run:
+	@docker-compose run --rm \
+		${APP_NAME} python3 main.py
+
 .PHONY: shell
 shell:
-	@docker-compose run --rm ${APP_NAME} bash
+	@docker-compose run --rm \
+		${APP_NAME} bash
