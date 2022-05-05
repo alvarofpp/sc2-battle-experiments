@@ -9,8 +9,7 @@ services:
     container_name: sc2-battle-experiments
     ipc: host
     volumes:
-      - ./app:/app
-      - ./requirements.txt:/app/requirements.txt
+      - .:/project
       - /tmp/.X11-unix:/tmp/.X11-unix
     environment:
       - DISPLAY=${DISPLAY}

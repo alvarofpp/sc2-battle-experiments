@@ -30,7 +30,7 @@ lint:
 .PHONY: run
 run:
 	@docker-compose run --rm \
-		${APP_NAME} python3 main.py
+		${APP_NAME} python3 app/main.py
 
 .PHONY: shell
 shell:
