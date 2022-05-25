@@ -9,7 +9,9 @@ services:
     container_name: sc2-battle-experiments
     ipc: host
     volumes:
-      - .:/project
+      - .:/app
       - /tmp/.X11-unix:/tmp/.X11-unix
     environment:
       - DISPLAY=${DISPLAY}
+      - WANDB_DOCKER=${WANDB_DOCKER}
+      - WANDB_API_KEY=${WANDB_API_KEY}
