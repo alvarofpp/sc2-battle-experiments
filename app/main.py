@@ -4,12 +4,15 @@ from EnemyAgent import EnemyAgent
 from PredictorAgent import PredictorAgent
 from pysc2.env import run_loop, sc2_env
 from pysc2.lib import actions, features
+import wandb
 
 
 def main(unused_argv):
     bm = BattleManager()
     agent1 = PredictorAgent(bm)
     agent2 = EnemyAgent(bm)
+    wandb.init(project='predictor_marines')
+
     try:
         with sc2_env.SC2Env(
                 map_name='Flat128',
@@ -23,7 +26,7 @@ def main(unused_argv):
                 step_mul=128,
                 disable_fog=True,
         ) as env:
-            run_loop.run_loop([agent1, agent2], env, max_episodes=1)
+            run_loop.run_loop([agent1, agent2], env, max_episodes=10)
     except KeyboardInterrupt:
         pass
 

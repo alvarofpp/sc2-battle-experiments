@@ -3,6 +3,7 @@ import random
 
 from pysc2.lib import actions
 from TerranAgent import TerranAgent
+import wandb
 
 
 class PredictorAgent(TerranAgent):
@@ -24,6 +25,11 @@ class PredictorAgent(TerranAgent):
                 csvwriter.writerow([self.bm.predictor_marines,
                                     self.bm.enemy_marines,
                                     obs.reward])
+                wandb.log({
+                    'predictor_marines': self.bm.predictor_marines,
+                    'enemy_marines': self.bm.enemy_marines,
+                    'reward': obs.reward,
+                })
         if (len(self.marines) == self.bm.predictor_marines and
                 not self.bm.predictor_ready):
             print('predictor ready')
