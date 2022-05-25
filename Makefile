@@ -6,6 +6,11 @@ ROOT=$(shell pwd)
 DOCKER_IMAGE_LINTER=alvarofpp/python:linter
 LINT_COMMIT_TARGET_BRANCH=origin/main
 
+# Variables for build
+USER_ID=$(shell id -u)
+GROUP_ID=$(shell id -g)
+BUILD_ARGS+=--build-arg USER_ID=${USER_ID} --build-arg GROUP_ID=${GROUP_ID}
+
 # Commands
 .PHONY: install-hooks
 install-hooks:
@@ -13,11 +18,11 @@ install-hooks:
 
 .PHONY: build
 build: install-hooks
-	@docker-compose build --pull
+	@docker-compose build --pull ${BUILD_ARGS}
 
 .PHONY: build-no-cache
 build-no-cache: install-hooks
-	@docker-compose build --no-cache --pull
+	@docker-compose build --no-cache --pull ${BUILD_ARGS}
 
 .PHONY: lint
 lint:
